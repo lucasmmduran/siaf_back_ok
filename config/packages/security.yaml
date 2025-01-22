@@ -1,3 +1,5 @@
+parameters:
+    ldap.dn_string: '%env(resolve:LDAP_DEFAULT_BASE_DN)%'
 security:
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
