@@ -38,16 +38,16 @@ security:
                 login_path:           /api/login
                 username_path:        username
                 password_path:        password
-                service:              '@app.ldap.produccion'
+                service:              app.ldap.produccion
                 dn_string:            'uid={username},%ldap.dn_string%'
                 query_string:         ~
                 search_dn:            ''
                 search_password:      ''
             jwt: ~        
-        api:
-            pattern:   ^/api
-            stateless: true
-            jwt: ~
+        #api:
+        #    pattern:   ^/api
+        #    stateless: true
+        #    jwt: ~
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
