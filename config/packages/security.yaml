@@ -21,7 +21,27 @@ security:
                 check_path: /api/login_check
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
-
+        jwt_ldap:
+            #hay que cambiar el pattern,check_path,login_path por lo que necesiten
+            pattern: ^/api 
+            entry_point: json_login_ldap
+            stateless: true
+            json_login_ldap:
+                provider:             app_user_provider
+                remember_me:          true
+                success_handler:      ~
+                failure_handler:      ~
+                check_path:           /api/login_check
+                use_forward:          false
+                login_path:           /api/login
+                username_path:        username
+                password_path:        password
+                service:              '@app.ldap.produccion'
+                dn_string:            'uid={user_identifier},%ldap.dn_string%'
+                query_string:         ~
+                search_dn:            ''
+                search_password:      ''
+            jwt: ~        
         api:
             pattern:   ^/api
             stateless: true
