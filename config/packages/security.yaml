@@ -36,10 +36,10 @@ security:
                 check_path:           /api/login_check
                 use_forward:          false
                 login_path:           /api/login
-                username_path:        user_identifier
+                username_path:        username
                 password_path:        password
                 service:              '@app.ldap.produccion'
-                dn_string:            'uid={user_identifier},%ldap.dn_string%'
+                dn_string:            'uid={username},%ldap.dn_string%'
                 query_string:         ~
                 search_dn:            ''
                 search_password:      ''
