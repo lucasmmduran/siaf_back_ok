@@ -2,3 +2,8 @@
 composer install
 
 php bin/console lexik:jwt:generate-keypair
+
+Crear archivo .env.local:
+LDAP_DEFAULT_PORT=
+LDAP_DEFAULT_HOST=
+LDAP_DEFAULT_BASE_DN=
