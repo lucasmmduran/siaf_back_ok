@@ -15,40 +15,25 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
-#        login:
-#            pattern: ^/api/login_check
-#            stateless: true
-#            json_login:
-#                check_path: /api/login_check
-#                success_handler: lexik_jwt_authentication.handler.authentication_success
-#                failure_handler: lexik_jwt_authentication.handler.authentication_failure
-        jwt_ldap:
-            #hay que cambiar el pattern,check_path,login_path por lo que necesiten
-            pattern: ^/api 
+        api:
             entry_point: json_login_ldap
             stateless: true
+            pattern: ^/api
+            provider: app_user_provider
             json_login_ldap:
-                provider:             app_user_provider
                 remember_me:          true
-                success_handler:      ~
-                failure_handler:      ~
-                check_path:           /api/login_check
-                use_forward:          false
-                login_path:           /api/login
+                success_handler:      lexik_jwt_authentication.handler.authentication_success
+                failure_handler:      lexik_jwt_authentication.handler.authentication_failure
+                check_path:           /api/auth
                 username_path:        username
                 password_path:        password
                 service:              app.ldap.produccion
-                dn_string:            'uid={user_identifier},%ldap.dn_string%'
-                query_string:         ~
-                search_dn:            ''
-                search_password:      ''
-            jwt: ~        
-        api:
-            pattern:   ^/api
-            stateless: true
+                dn_string:            '{user_identifier}@olimpus'
             jwt: ~
-
+        main:
+            pattern: '^/'
+            stateless: true
+            
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
@@ -58,9 +43,13 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/api/login_check, roles: PUBLIC_ACCESS }
+        - { path: ^/_components, roles: PUBLIC_ACCESS  }
+        - { path: ^/(api/?)?$, roles: PUBLIC_ACCESS } # Allows accessing the Swagger UI
+        - { path: ^/api/docs, roles: PUBLIC_ACCESS } # Allows accessing the Swagger UI docs
+        - { path: ^/api/(auth|login)$, roles: PUBLIC_ACCESS }
+        - { path: ^/api/.well-known, roles: PUBLIC_ACCESS }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+#       # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:

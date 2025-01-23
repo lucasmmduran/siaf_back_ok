@@ -1,12 +1,9 @@
+api_auth:
+    path: /api/auth
+    methods: ['POST']
+    
 controllers:
-    defaults:
-        _scheme: https
     resource:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
-
-api_login_check:
-    path: /api/login_check
-
-
