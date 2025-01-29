@@ -38,15 +38,18 @@ class PlaPlanesCabecera
     private Collection $planesProcesos;
 
     #[ORM\ManyToOne(inversedBy: 'PlaPlanesCabecera')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?PlaConfPlanes $plaConfPlanes = null;
 
     #[ORM\ManyToOne(inversedBy: 'plaPlanesCabeceras')]
     private ?SiafAperturasProgramaticas $SiafAperturasProgramaticas = null;
 
     #[ORM\ManyToOne(inversedBy: 'plaPlanesCabeceras')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafEjercicios $SiafEjercicios = null;
 
     #[ORM\ManyToOne(inversedBy: 'plaPlanesCabeceras')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafUnidades $SiafUnidades = null;
 
     public function __construct()

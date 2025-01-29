@@ -14,17 +14,19 @@ class PlaConfPlanObjetosGasto
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $fechaVigenciaDesde = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: false)]
+    private ?\DateTimeInterface $fechaVigenciaDesde;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $fechaVigenciaHasta = null;
 
     #[ORM\ManyToOne(inversedBy: 'plaConfPlanObjetosGastos')]
-    private ?PlaConfTipoPlanes $PlaConfTipoPlan = null;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?PlaConfTipoPlanes $PlaConfTipoPlan;
 
     #[ORM\ManyToOne(inversedBy: 'plaConfPlanObjetosGastos')]
-    private ?SiafObjetosGasto $SiafObjetosGasto = null;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?SiafObjetosGasto $SiafObjetosGasto;
 
     public function getId(): ?int
     {

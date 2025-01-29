@@ -18,7 +18,7 @@ class SiafServicios
     #[ORM\Column(length: 10)]
     private ?string $codServicio = null;
 
-    #[ORM\Column(length: 45, nullable: true)]
+    #[ORM\Column(length: 120, nullable: true)]
     private ?string $servicio = null;
 
     #[ORM\Column(length: 15)]
@@ -31,6 +31,7 @@ class SiafServicios
     private Collection $siafAperturasProgramaticas;
 
     #[ORM\ManyToOne(inversedBy: 'SiafServicios')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafEjercicios $siafEjercicios = null;
 
     /**

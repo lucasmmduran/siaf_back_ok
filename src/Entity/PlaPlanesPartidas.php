@@ -14,169 +14,173 @@ class PlaPlanesPartidas
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoMes1 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoOrigMes1 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $importeNoProgramadoOrig = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $importeNoProgramado = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoMes2 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoOrigMes2 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoMes3 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoOrigMes3 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoMes4 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoOrigMes4 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoMes5 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoOrigMes5 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoMes6 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoOrigMes6 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoMes7 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoOrigMes7 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoMes8 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoOrigMes8 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoMes9 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoOrigMes9 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoMes10 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoOrigMes10 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoMes11 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoOrigMes11 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoMes12 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $compromisoOrigMes12 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoMes1 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoOrigMes1 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoMes2 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoOrigMes2 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoMes3 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoOrigMes3 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoMes4 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoOrigMes4 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoMes5 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoOrigMes5 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoMes6 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoOrigMes6 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoMes7 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoOrigMe7 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoMes8 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoOrigMe8 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoMes9 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoOrigMe9 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoMes10 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoOrigMe10 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoMes11 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoOrigMe11 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoMes12 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2, nullable: true)]
     private ?string $devengadoOrigMe12 = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $subClase = null;
 
     #[ORM\ManyToOne(inversedBy: 'PlaPlanesPartidas')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?PlaPlanesProcesos $plaPlanesProcesos = null;
 
     #[ORM\ManyToOne(inversedBy: 'plaPlanesPartidas')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafFuentesFinanciamiento $SiafFuentesFinanciamiento = null;
 
     #[ORM\ManyToOne(inversedBy: 'plaPlanesPartidas')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafAperturasProgramaticas $SiafAperturasProgramaticas = null;
 
     #[ORM\ManyToOne(inversedBy: 'plaPlanesPartidas')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafObjetosGasto $SiafObjetosGasto = null;
 
     public function getId(): ?int

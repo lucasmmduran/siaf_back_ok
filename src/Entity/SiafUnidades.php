@@ -50,9 +50,11 @@ class SiafUnidades
     private Collection $plaPlanesCabeceras;
 
     #[ORM\ManyToOne(inversedBy: 'SiafUnidades')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafOrganigrama $siafOrganigrama = null;
 
     #[ORM\ManyToOne(inversedBy: 'SiafUnidades')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafServicios $SiafServicios = null;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'siafUnidades')]

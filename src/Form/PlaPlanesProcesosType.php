@@ -2,8 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\PlaConfTipoPlanes;
 use App\Entity\PlaPlanesCabecera;
 use App\Entity\PlaPlanesProcesos;
+use App\Entity\SiafMoneda;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -34,6 +36,14 @@ class PlaPlanesProcesosType extends AbstractType
             ->add('referenciaLineaProceso')
             ->add('plaPlanesCabecera', EntityType::class, [
                 'class' => PlaPlanesCabecera::class,
+                'choice_label' => 'id',
+            ])
+            ->add('plaConfTipoPlanes', EntityType::class, [
+                'class' => PlaConfTipoPlanes::class,
+                'choice_label' => 'id',
+            ])
+            ->add('SiafMoneda', EntityType::class, [
+                'class' => SiafMoneda::class,
                 'choice_label' => 'id',
             ])
         ;

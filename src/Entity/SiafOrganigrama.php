@@ -19,10 +19,10 @@ class SiafOrganigrama
     #[ORM\Column(length: 10)]
     private ?string $codUnidadOrganizacional = null;
 
-    #[ORM\Column(length: 45)]
+    #[ORM\Column(length: 120)]
     private ?string $unidadOrganizacional = null;
 
-    #[ORM\Column(length: 15)]
+    #[ORM\Column(length: 20)]
     private ?string $abrUnidadOrganizacional = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]

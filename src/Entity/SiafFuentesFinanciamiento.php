@@ -31,6 +31,7 @@ class SiafFuentesFinanciamiento
     private Collection $plaPlanesPartidas;
 
     #[ORM\ManyToOne(inversedBy: 'SiafFuentesFinanciamiento')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafEjercicios $siafEjercicios = null;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'siafFuentesFinanciamientos')]

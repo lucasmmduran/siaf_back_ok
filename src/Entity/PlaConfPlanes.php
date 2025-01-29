@@ -16,16 +16,16 @@ class PlaConfPlanes
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 3)]
-    private ?string $codTipoPlan = null;
+    #[ORM\Column(length: 5)]
+    private ?string $codPlan = null;
 
     #[ORM\Column(length: 60)]
-    private ?string $TipoPlan = null;
+    private ?string $plan = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $fechaVigenciaDesde = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $fechaVigenciaHasta = null;
 
     #[ORM\Column(length: 20)]
@@ -34,16 +34,10 @@ class PlaConfPlanes
     #[ORM\Column(length: 250)]
     private ?string $descripcion = null;
 
-    #[ORM\Column(type: Types::ARRAY)]
-    private array $nivelTipo = [];
-
-    #[ORM\Column]
-    private ?int $nivel = null;
-
     /**
-     * @var Collection<int, PlaConfPlanConcepto>
+     * @var Collection<int, PlaConfPlanConceptos>
      */
-    #[ORM\OneToMany(targetEntity: PlaConfPlanConcepto::class, mappedBy: 'PlaConfPlanes')]
+    #[ORM\OneToMany(targetEntity: PlaConfPlanConceptos::class, mappedBy: 'PlaConfPlanes')]
     private Collection $plaConfPlanConceptos;
 
     #[ORM\ManyToOne(inversedBy: 'plaConfPlanes')]
@@ -66,26 +60,26 @@ class PlaConfPlanes
         return $this->id;
     }
 
-    public function getCodTipoPlan(): ?string
+    public function getCodPlan(): ?string
     {
-        return $this->codTipoPlan;
+        return $this->codPlan;
     }
 
-    public function setCodTipoPlan(string $codTipoPlan): static
+    public function setCodPlan(string $codPlan): static
     {
-        $this->codTipoPlan = $codTipoPlan;
+        $this->codPlan = $codPlan;
 
         return $this;
     }
 
-    public function getTipoPlan(): ?string
+    public function getPlan(): ?string
     {
-        return $this->TipoPlan;
+        return $this->plan;
     }
 
-    public function setTipoPlan(string $TipoPlan): static
+    public function setPlan(string $plan): static
     {
-        $this->TipoPlan = $TipoPlan;
+        $this->plan = $plan;
 
         return $this;
     }
@@ -138,39 +132,15 @@ class PlaConfPlanes
         return $this;
     }
 
-    public function getNivelTipo(): array
-    {
-        return $this->nivelTipo;
-    }
-
-    public function setNivelTipo(array $nivelTipo): static
-    {
-        $this->nivelTipo = $nivelTipo;
-
-        return $this;
-    }
-
-    public function getNivel(): ?int
-    {
-        return $this->nivel;
-    }
-
-    public function setNivel(int $nivel): static
-    {
-        $this->nivel = $nivel;
-
-        return $this;
-    }
-
     /**
-     * @return Collection<int, PlaConfPlanConcepto>
+     * @return Collection<int, PlaConfPlanConceptos>
      */
     public function getPlaConfPlanConceptos(): Collection
     {
         return $this->plaConfPlanConceptos;
     }
 
-    public function addPlaConfPlanConcepto(PlaConfPlanConcepto $plaConfPlanConcepto): static
+    public function addPlaConfPlanConcepto(PlaConfPlanConceptos $plaConfPlanConcepto): static
     {
         if (!$this->plaConfPlanConceptos->contains($plaConfPlanConcepto)) {
             $this->plaConfPlanConceptos->add($plaConfPlanConcepto);
@@ -180,7 +150,7 @@ class PlaConfPlanes
         return $this;
     }
 
-    public function removePlaConfPlanConcepto(PlaConfPlanConcepto $plaConfPlanConcepto): static
+    public function removePlaConfPlanConcepto(PlaConfPlanConceptos $plaConfPlanConcepto): static
     {
         if ($this->plaConfPlanConceptos->removeElement($plaConfPlanConcepto)) {
             // set the owning side to null (unless already changed)

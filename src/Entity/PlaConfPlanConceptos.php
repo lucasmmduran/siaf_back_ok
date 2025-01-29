@@ -7,40 +7,32 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PlaConfPlanConceptosRepository::class)]
-class PlaConfPlanConcepto
+class PlaConfPlanConceptos
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\ManyToOne(inversedBy: 'plaConfPlanConceptos')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?PlaConfPlanes $PlaConfPlanes;
+
+    #[ORM\Column(length: 6)]
+    private ?string $codPlanConcepto = null;
+
     #[ORM\Column(length: 45)]
     private ?string $planConcepto = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $fechaVigenciaDesde = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: false)]
+    private ?\DateTimeInterface $fechaVigenciaDesde;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $fechaVigenciaHasta = null;
 
-    #[ORM\ManyToOne(inversedBy: 'plaConfPlanConceptos')]
-    private ?PlaConfPlanes $PlaConfPlanes = null;
-
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getPlanConcepto(): ?string
-    {
-        return $this->planConcepto;
-    }
-
-    public function setPlanConcepto(string $planConcepto): static
-    {
-        $this->planConcepto = $planConcepto;
-
-        return $this;
     }
 
     public function getFechaVigenciaDesde(): ?\DateTimeInterface
@@ -75,6 +67,30 @@ class PlaConfPlanConcepto
     public function setPlaConfPlanes(?PlaConfPlanes $PlaConfPlanes): static
     {
         $this->PlaConfPlanes = $PlaConfPlanes;
+
+        return $this;
+    }
+
+    public function getCodPlanConcepto(): ?string
+    {
+        return $this->codPlanConcepto;
+    }
+
+    public function setCodPlanConcepto(string $codPlanConcepto): static
+    {
+        $this->codPlanConcepto = $codPlanConcepto;
+
+        return $this;
+    }
+
+    public function getPlanConcepto(): ?string
+    {
+        return $this->planConcepto;
+    }
+
+    public function setPlanConcepto(string $planConcepto): static
+    {
+        $this->planConcepto = $planConcepto;
 
         return $this;
     }

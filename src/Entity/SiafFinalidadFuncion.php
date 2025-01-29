@@ -18,8 +18,8 @@ class SiafFinalidadFuncion
     #[ORM\Column(length: 3)]
     private ?string $codFinalidadFuncion = null;
 
-    #[ORM\Column(length: 80, nullable: true)]
-    private ?string $funcional = null;
+    #[ORM\Column(length: 80, nullable: false)]
+    private ?string $finalidadFuncion = null;
 
     #[ORM\Column]
     private ?int $nivel = null;
@@ -31,6 +31,7 @@ class SiafFinalidadFuncion
     private Collection $siafAperturasProgramaticas;
 
     #[ORM\ManyToOne(inversedBy: 'SiafFinalidadFuncion')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafEjercicios $siafEjercicios = null;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'siafFinalidadFuncions')]
@@ -65,14 +66,14 @@ class SiafFinalidadFuncion
         return $this;
     }
 
-    public function getFuncional(): ?string
+    public function getFuncionalFuncion(): ?string
     {
-        return $this->funcional;
+        return $this->finalidadFuncion;
     }
 
-    public function setFuncional(?string $funcional): static
+    public function setFuncionalFuncion(?string $finalidadFuncion): static
     {
-        $this->funcional = $funcional;
+        $this->finalidadFuncion = $finalidadFuncion;
 
         return $this;
     }

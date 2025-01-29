@@ -40,19 +40,34 @@ class SiafAperturasProgramaticas
     private ?SiafFinalidadFuncion $SiafFinalidadFuncion = null;
 
     #[ORM\ManyToOne(inversedBy: 'siafAperturasProgramaticas')]
-    private ?SiafServicios $SiafServicios = null;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?SiafServicios $SiafServicios;
 
     #[ORM\ManyToOne(inversedBy: 'siafAperturasProgramaticas')]
-    private ?SiafEjercicios $SiafEjercicios = null;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?SiafEjercicios $SiafEjercicios;
 
     #[ORM\ManyToOne(inversedBy: 'siafAperturasProgramaticas')]
     private ?SiafCategoriasProgramaticas $SiafCategoriasProgramaticas = null;
+
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $aperturaProgramatica = null;
+
+    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'siafAperturasProgramaticas')]
+    private ?self $siafAperturaProgramaticaPadre = null;
+
+    /**
+     * @var Collection<int, self>
+     */
+    #[ORM\OneToMany(targetEntity: self::class, mappedBy: 'siafAperturaProgramaticaPadre')]
+    private Collection $siafAperturasProgramaticas;
 
     public function __construct()
     {
         $this->plaConfUnidadesProgramaticas = new ArrayCollection();
         $this->plaPlanesCabeceras = new ArrayCollection();
         $this->plaPlanesPartidas = new ArrayCollection();
+        $this->siafAperturasProgramaticas = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -206,6 +221,60 @@ class SiafAperturasProgramaticas
     public function setSiafCategoriasProgramaticas(?SiafCategoriasProgramaticas $SiafCategoriasProgramaticas): static
     {
         $this->SiafCategoriasProgramaticas = $SiafCategoriasProgramaticas;
+
+        return $this;
+    }
+
+    public function getAperturaProgramatica(): ?string
+    {
+        return $this->aperturaProgramatica;
+    }
+
+    public function setAperturaProgramatica(?string $aperturaProgramatica): static
+    {
+        $this->aperturaProgramatica = $aperturaProgramatica;
+
+        return $this;
+    }
+
+    public function getSiafAperturaProgramaticaPadre(): ?self
+    {
+        return $this->siafAperturaProgramaticaPadre;
+    }
+
+    public function setSiafAperturaProgramaticaPadre(?self $siafAperturaProgramaticaPadre): static
+    {
+        $this->siafAperturaProgramaticaPadre = $siafAperturaProgramaticaPadre;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getSiafAperturasProgramaticas(): Collection
+    {
+        return $this->siafAperturasProgramaticas;
+    }
+
+    public function addSiafAperturasProgramatica(self $siafAperturasProgramatica): static
+    {
+        if (!$this->siafAperturasProgramaticas->contains($siafAperturasProgramatica)) {
+            $this->siafAperturasProgramaticas->add($siafAperturasProgramatica);
+            $siafAperturasProgramatica->setSiafAperturaProgramaticaPadre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSiafAperturasProgramatica(self $siafAperturasProgramatica): static
+    {
+        if ($this->siafAperturasProgramaticas->removeElement($siafAperturasProgramatica)) {
+            // set the owning side to null (unless already changed)
+            if ($siafAperturasProgramatica->getSiafAperturaProgramaticaPadre() === $this) {
+                $siafAperturasProgramatica->setSiafAperturaProgramaticaPadre(null);
+            }
+        }
 
         return $this;
     }

@@ -4,6 +4,9 @@ namespace App\Form;
 
 use App\Entity\PlaPlanesPartidas;
 use App\Entity\PlaPlanesProcesos;
+use App\Entity\SiafAperturasProgramaticas;
+use App\Entity\SiafFuentesFinanciamiento;
+use App\Entity\SiafObjetosGasto;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -67,6 +70,18 @@ class PlaPlanesPartidasType extends AbstractType
             ->add('subClase')
             ->add('plaPlanesProcesos', EntityType::class, [
                 'class' => PlaPlanesProcesos::class,
+                'choice_label' => 'id',
+            ])
+            ->add('SiafFuentesFinanciamiento', EntityType::class, [
+                'class' => SiafFuentesFinanciamiento::class,
+                'choice_label' => 'id',
+            ])
+            ->add('SiafAperturasProgramaticas', EntityType::class, [
+                'class' => SiafAperturasProgramaticas::class,
+                'choice_label' => 'id',
+            ])
+            ->add('SiafObjetosGasto', EntityType::class, [
+                'class' => SiafObjetosGasto::class,
                 'choice_label' => 'id',
             ])
         ;

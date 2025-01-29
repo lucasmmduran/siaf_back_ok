@@ -16,10 +16,7 @@ class SiafObjetosGasto
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 9)]
-    private ?string $siafObjetosGasto = null;
-
-    #[ORM\Column(length: 45, nullable: true)]
+    #[ORM\Column(length: 45, nullable: false)]
     private ?string $abrObjetoGasto = null;
 
     #[ORM\Column]
@@ -47,6 +44,7 @@ class SiafObjetosGasto
     private Collection $plaPlanesPartidas;
 
     #[ORM\ManyToOne(inversedBy: 'SiafObjetosGasto')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafEjercicios $siafEjercicios = null;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'siafObjetosGastos')]
@@ -57,6 +55,12 @@ class SiafObjetosGasto
      */
     #[ORM\OneToMany(targetEntity: self::class, mappedBy: 'idPadre')]
     private Collection $siafObjetosGastos;
+
+    #[ORM\Column(length: 80)]
+    private ?string $objetoGasto = null;
+
+    #[ORM\Column(length: 9)]
+    private ?string $codObjetoGasto = null;
 
     public function __construct()
     {
@@ -69,18 +73,6 @@ class SiafObjetosGasto
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getSiafObjetosGasto(): ?string
-    {
-        return $this->siafObjetosGasto;
-    }
-
-    public function setSiafObjetosGasto(string $siafObjetosGasto): static
-    {
-        $this->siafObjetosGasto = $siafObjetosGasto;
-
-        return $this;
     }
 
     public function getAbrObjetoGasto(): ?string
@@ -259,6 +251,30 @@ class SiafObjetosGasto
                 $siafObjetosGasto->setIdPadre(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getObjetoGasto(): ?string
+    {
+        return $this->objetoGasto;
+    }
+
+    public function setObjetoGasto(string $objetoGasto): static
+    {
+        $this->objetoGasto = $objetoGasto;
+
+        return $this;
+    }
+
+    public function getCodObjetoGasto(): ?string
+    {
+        return $this->codObjetoGasto;
+    }
+
+    public function setCodObjetoGasto(string $codObjetoGasto): static
+    {
+        $this->codObjetoGasto = $codObjetoGasto;
 
         return $this;
     }

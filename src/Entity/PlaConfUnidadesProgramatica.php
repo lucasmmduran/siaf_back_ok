@@ -21,9 +21,11 @@ class PlaConfUnidadesProgramatica
     private ?\DateTimeInterface $fechaVigenciaHasta = null;
 
     #[ORM\ManyToOne(inversedBy: 'plaConfUnidadesProgramaticas')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafUnidades $SiafUnidades = null;
 
     #[ORM\ManyToOne(inversedBy: 'plaConfUnidadesProgramaticas')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafAperturasProgramaticas $SiafAperturasProgramaticas = null;
 
     public function getId(): ?int

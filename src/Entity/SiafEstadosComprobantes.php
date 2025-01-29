@@ -20,7 +20,7 @@ class SiafEstadosComprobantes
     private ?string $descEstado = null;
 
     #[ORM\ManyToOne(inversedBy: 'siafEstadosComprobantes')]
-    private ?SiafTiposComporbantes $SiafTiposComporbantes = null;
+    private ?SiafTiposComprobantes $SiafTiposComprobantes = null;
 
     public function getId(): ?int
     {
@@ -51,14 +51,14 @@ class SiafEstadosComprobantes
         return $this;
     }
 
-    public function getSiafTiposComporbantes(): ?SiafTiposComporbantes
+    public function getSiafTiposComprobantes(): ?SiafTiposComprobantes
     {
-        return $this->SiafTiposComporbantes;
+        return $this->SiafTiposComprobantes;
     }
 
-    public function setSiafTiposComporbantes(?SiafTiposComporbantes $SiafTiposComporbantes): static
+    public function setSiafTiposComprobantes(?SiafTiposComprobantes $SiafTiposComprobantes): static
     {
-        $this->SiafTiposComporbantes = $SiafTiposComporbantes;
+        $this->SiafTiposComprobantes = $SiafTiposComprobantes;
 
         return $this;
     }

@@ -34,13 +34,13 @@ class PlaPlanesProcesos
     #[ORM\Column]
     private ?bool $esMonedaExtranjera = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(nullable: false)]
     private ?bool $estaPresupuestado = null;
 
-    #[ORM\Column(type: Types::ARRAY, nullable: true)]
+    #[ORM\Column(type: Types::ARRAY, nullable: false)]
     private ?array $tipoTasa = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 6, nullable: true)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 6, nullable: false)]
     private ?string $tasaConversion = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
@@ -61,16 +61,17 @@ class PlaPlanesProcesos
     #[ORM\Column(type: Types::DECIMAL, precision: 18, scale: 2)]
     private ?string $importeProximoEjercicioOrig = null;
 
-    #[ORM\Column(length: 45)]
+    #[ORM\Column(length: 45, nullable: true)]
     private ?string $expedienteImpulso = null;
 
-    #[ORM\Column(type: Types::ARRAY)]
+    #[ORM\Column(type: Types::ARRAY, nullable: true)]
     private array $tipoRegistro = [];
 
     #[ORM\Column(length: 45)]
     private ?string $referenciaLineaProceso = null;
 
     #[ORM\ManyToOne(inversedBy: 'planesProcesos')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?PlaPlanesCabecera $plaPlanesCabecera = null;
 
     /**
@@ -80,9 +81,11 @@ class PlaPlanesProcesos
     private Collection $PlaPlanesPartidas;
 
     #[ORM\ManyToOne(inversedBy: 'PlaPlanesProcesos')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?PlaConfTipoPlanes $plaConfTipoPlanes = null;
 
     #[ORM\ManyToOne(inversedBy: 'plaPlanesProcesos')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafMoneda $SiafMoneda = null;
 
     public function __construct()

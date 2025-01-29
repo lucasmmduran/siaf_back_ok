@@ -14,17 +14,19 @@ class PlaConfPlanUnidades
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $fechaVigenciaDesde = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: false)]
+    private ?\DateTimeInterface $fechaVigenciaDesde;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $fechaVigenciaHasta = null;
 
     #[ORM\ManyToOne(inversedBy: 'plaConfPlanUnidades')]
-    private ?SiafUnidades $SiafUnidades = null;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?SiafUnidades $SiafUnidades;
 
     #[ORM\ManyToOne(inversedBy: 'plaConfPlanUnidades')]
-    private ?PlaConfTipoPlanes $PlaConfTipoPlanes = null;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?PlaConfTipoPlanes $PlaConfTipoPlanes;
 
     public function getId(): ?int
     {

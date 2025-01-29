@@ -25,6 +25,7 @@ class SiafInstituciones
     private ?int $nivel = null;
 
     #[ORM\ManyToOne(inversedBy: 'SiafInstituciones')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?SiafEjercicios $siafEjercicios = null;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'siafInstituciones')]
