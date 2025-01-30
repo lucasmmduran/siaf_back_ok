@@ -173,9 +173,25 @@ final class PlaPlanesCabeceraController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_pla_planes_cabecera_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, PlaPlanesCabecera $plaPlanesCabecera, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, PlaPlanesCabecera $plaPlanesCabecera, EntityManagerInterface $entityManager): JsonResponse
     {
-        $form = $this->createForm(PlaPlanesCabeceraType::class, $plaPlanesCabecera);
+
+        $id = $request->attributes->get('id');
+        $plan = $entityManager->getRepository(PlaPlanesCabecera::class)->findOneBy(['id' => $id]);
+        $procesos = $plan->getPlanesProcesos()->toArray();
+
+        $data = array_map(function ($proceso) {
+            return [
+                'id' => $proceso->getId(),
+                'concepto' => $proceso->getNombre(),
+                'identificacion' => $proceso->getIdentificacion(),
+                'descripcion' => $proceso->getDescripcion(),
+                'monto_anual' => '', // harcodeado, falta dato o ver de donde se forma
+            ];
+        }, $procesos);
+        return new JsonResponse(['data' => $data], JsonResponse::HTTP_OK);
+
+        /* $form = $this->createForm(PlaPlanesCabeceraType::class, $plaPlanesCabecera);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -187,7 +203,7 @@ final class PlaPlanesCabeceraController extends AbstractController
         return $this->render('pla_planes_cabecera/edit.html.twig', [
             'pla_planes_cabecera' => $plaPlanesCabecera,
             'form' => $form,
-        ]);
+        ]); */
     }
 
     #[Route('/{id}', name: 'app_pla_planes_cabecera_delete', methods: ['POST'])]
